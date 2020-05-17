@@ -20,3 +20,7 @@ require(FRAMEWORK_PATH.'__class/__authentication.php');
 require(FRAMEWORK_PATH.'__class/__action.php');
 require(FRAMEWORK_PATH.'__class/__mail.php');
 require(FRAMEWORK_PATH.'__class/__jwt.php');
+if(file_exists(FRAMEWORK_PATH.'__lib/vendor/autoload.php')) {
+    require(FRAMEWORK_PATH.'__lib/vendor/autoload.php');
+}
+

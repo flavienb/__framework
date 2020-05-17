@@ -7,11 +7,20 @@ class example_controller_auth extends __controller
      */
     protected $datasource;
 
+    /**
+     * Initialize our model
+     */
     public function init() {
         // initialize our model
         $this->datasource = new example_model_user();
     }
 
+    /**
+     * Login with username / password
+     * Before using the __auth module you should configure it in application.php conf file and set up you database accordingly
+     * @return mixed
+     * @throws Exception
+     */
     public function loginAction() {
         $requiredParams = ['login', 'password'];
 
@@ -27,12 +36,21 @@ class example_controller_auth extends __controller
         __::unauthorized('Bad login or password');
     }
 
+    /**
+     *  Logout
+     * @return bool
+     */
     public function logoutAction() {
         __auth::disconnect(true);
 
         return false;
     }
 
+    /**
+     * Only authenticated user should be able to access this section
+     * @return array
+     * @throws Exception
+     */
     public function privateAction() {
         if (__auth::isAuthenticated()) {
             return ['access_granted' => 1];
@@ -41,6 +59,11 @@ class example_controller_auth extends __controller
         __::unauthorized();
     }
 
+    /**
+     * Insert a new user in the database
+     * @return array
+     * @throws Exception
+     */
     public function signupAction() {
         $requiredParams = ['login', 'password'];
         $optionalParams = ['firstname', 'lastname'];

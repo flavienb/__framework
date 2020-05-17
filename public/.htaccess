@@ -1,6 +1,4 @@
 Options -MultiViews
 
-SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
-
 RewriteEngine on
 RewriteRule !\.(js|ico|css|jpg|jpeg|png|html|gif|xml|txt|bmp|pdf|swf|htc|eot|svg|ttf|woff|ogg|m4v|mov|woff2|scn)$ index.php [QSA,L,NC]
