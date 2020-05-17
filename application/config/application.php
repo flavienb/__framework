@@ -41,7 +41,7 @@ return Array(
         'FIELDS_SELECT' =>  array('firstname','lastname','email'),
         'CUSTOM_SQL'    =>  ''
         ),
-    'AUTHORIZATION_HEADER' => 'HTTP_AUTHORIZATION',
+    'AUTHORIZATION_HEADER' => 'Authorization',
     /**
      * Locales
      */
